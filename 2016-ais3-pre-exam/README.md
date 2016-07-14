@@ -1,48 +1,18 @@
-##**Table of contents**
-
-####*[Misc 1](#misc-1)*
-####*[Misc 2](#misc-2)*
-####*[Misc 3](#misc-3)*
-####*[Crypto 1](#crypto-1)*
-####*[Crypto 2](#crypto-2)*
-####*[Crypto 3](#crypto-3)*
-####*[Binary 1](#binary-1)*
-####*[Binary 2](#binary-2)*
-####*[Binary 3](#binary-3)*
-####*[Remote 1](#remote-1)*
-####*[Remote 2](#remote-2)*
-####*[Remote 3](#remote-3)*
-####*[Web 1](#web-1)*
-####*[Web 2](#web-2)*
-####*[Web 3](#web-3)*
-
----------------------------------------
-
-<a name="misc-1"></a>
-
 ## Misc 1
 
 Open the url and prompt the flag.
-
-<a name="misc-2"></a>
 
 ## Misc 2
 
 It's a 7zip chain... Modify each byte from 0x5a to 0x7z at offset 0x01, and then you'll be able to decompress it with password, which is shown as the filename or the content of the other unencrpyted file.
 
-<a name="misc-3"></a>
-
 ## Misc 3
 
 It's just like [this case](http://josipfranjkovic.blogspot.tw/2014/12/reading-local-files-from-facebooks.html) happened to Facebook. You create a symlink named `guess.txt` to `../flag.txt`, then you add this symlink to tarball file and upload it to quiz server. You should bypass sha1sum's validation.
 
-<a name="crypto-1"></a>
-
 ## Crypto 1
 
 [xortool](https://github.com/hellman/xortool) is enough. Try to be patient to find out where the flag is.
-
-<a name="crypto-2"></a>
 
 ## Crypto 2
 
@@ -73,13 +43,9 @@ for i in xrange(61):
 
 Because quiz server do not check the situation that ones can reuse the values of auth and expire that server gave after redirection, we can just reuse those values and append `&expire=9999999999` to the end of the url. Voila, we get the flag.
 
-<a name="crypto-3"></a>
-
 ## Crypto 3
 
 TBA.
-
-<a name="binary-1"></a>
 
 ## Binary 1
 
@@ -103,13 +69,9 @@ solution = solution[:solution.find("\x00")]
 print solution
 ```
 
-<a name="binary-2"></a>
-
 ## Binary 2
 
 It's a 64-bit machine code. You can get it presented as byte-to-byte form through: ```echo -e "..." | hexdump -e '"\\\x" /1  "%02x"'```.
-
-<a name="binary-3"></a>
 
 ## Binary 3
 
@@ -156,37 +118,25 @@ if __name__ == '__main__':
 
 ```
 
-<a name="remote-1"></a>
-
 ## Remote 1
 
 You can follow [this write-up](http://mslc.ctf.su/wp/plaidctf-2012-format-99-pwnables/) to get how to solve this problem.
-
-<a name="remote-2"></a>
 
 ## Remote 2
 
 TBA.
 
-<a name="remote-3"></a>
-
 ## Remote 3
 
 TBA.
-
-<a name="web-1"></a>
 
 ## Web 1
 
 It's because `robot.txt` that Google bot cannot do anything.
 
-<a name="web-2"></a>
-
 ## Web 2
 
 Because there is not exit statement below header function, the script execution is not terminated. [noredirect addon](https://addons.mozilla.org/en-US/firefox/addon/noredirect/) can help you in this situation.
-
-<a name="web-3"></a>
 
 ## Web 3
 
