@@ -16,7 +16,7 @@ It's just like [this case](http://josipfranjkovic.blogspot.tw/2014/12/reading-lo
 
 ## Crypto 2
 
-### Intended Sulution
+### Intended Solution
 
 It's a [Length Extension Attack](www.freebuf.com/articles/web/31756.html) problem. Following is my example exploit script:
 
@@ -39,7 +39,7 @@ for i in xrange(61):
 		break
 ```
 
-### Unintended Sulution
+### Unintended Solution
 
 Because quiz server do not check the situation that ones can reuse the values of auth and expire that server gave after redirection, we can just reuse those values and append `&expire=9999999999` to the end of the url. Voila, we get the flag.
 
